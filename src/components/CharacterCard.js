@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
 
 export default function CharacterCard(props) {
 
   return( 
-    // <Link to={`/characters/${props.key}`}>
+    <Link to={`/characters/${props.key}`}>
       <span>
         <div>
           <Card inverse>
@@ -27,6 +29,6 @@ export default function CharacterCard(props) {
           </Card>
         </div>
       </span>
-    // </Link>
+     </Link>
   )
 }

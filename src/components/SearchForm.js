@@ -1,67 +1,18 @@
-import React, { useState, useEffect } from "react";
-// import Result from "./Result";
+import React from "react";
 
-export default function SearchForm({characters}) {
- 
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const [searchResults, setSearchResults ] = useState([]);
-
-  const handleChange = e => {
-    setSearchTerm(e.target.value)
-  }
-
-  // const onSubmit = e => {
-  //   e.preventDefault();
-
-  // }
-
-  useEffect(() => {
-    let results = characters.filter(character =>
-    (character.name).toLowerCase().includes(searchTerm.toLowerCase()))
-    setSearchResults(results)
-  }, [searchTerm]);
-
+export default function SearchForm(props) {
   return (
-    <section className="search-form">
+    <section className = "search-form">
      <form>
-
-       <label htmlFor="name">search</label>
-
+       <label htmlFor = "name">search</label>
        <input 
-       id="name" 
-       type="text" 
-       name="searchbar"
-       placeholder="Search" 
-       onChange={handleChange}
-       value={searchTerm}
+        id = "name" 
+        type = "text" 
+        name = "searchbar"
+        placeholder = "Search" 
+        onChange = {(e) => props.search(e.target.value)}
        />
-
      </form>
-     <ul>
-      {searchResults.map( (character, index) => (
-        <li
-         key={index} >
-         {character.name} 
-         </li>
-      ))}
-    </ul>
     </section>
   );
-}
-
-// export default function Result() {
-
-//   return(
-//     <div>
-    // <ul>
-    //   {searchResults.map( (character, index) => (
-    //     <Result
-    //      key={index} 
-    //      characterName={character} 
-    //      />
-    //   ))}
-    // </ul>
-//   </div>
-//   )
-// }
+};

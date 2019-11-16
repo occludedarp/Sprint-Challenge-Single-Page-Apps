@@ -1,36 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header.js";
 import { Route } from "react-router-dom";
 
-import CharacterList from "./components/CharacterList";
+// import CharacterList from "./components/CharacterList";
 import LocationsList from "./components/LocationsList";
-import WelcomePage from "./components/CharacterList";
-import SearchForm from "./components/SearchForm";
+import WelcomePage from "./components/WelcomePage";
+import CharacterList from "./components/CharacterList.js";
+// import SearchForm from "./components/SearchForm";
+
+
 
 export default function App() {
+  
+  // const [searchTerm, setSearchTerm] = useState('');
+
+  // const [searchResults, setSearchResults ] = useState('');
+
+  // const handleChange = e => {
+  //   setSearchTerm(e.target.value)
+  // }
+
   return (
-    <div>
+    <main>
+      <Header />
+
+      <Route exact path="/" component={WelcomePage}/>
     
-    {/* <Route 
-      exact
-      path="/"
-      render={()}
-    /> */}
-      <main>
-      
-        <Header />
-        
-        {/* <Route 
-          path="/components" 
-          render={(props) => (
-            <CharacterList/>
-          )}
-        />   */}
-        
+      <Route path="/characters" component={CharacterList}/>
 
+      <Route path="/locations" component={LocationsList}/>
 
-        
-      </main>
-    </div>
+    </main>
   );
 }

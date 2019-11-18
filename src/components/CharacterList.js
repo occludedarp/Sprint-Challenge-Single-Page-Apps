@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import Grid from '@material-ui/core/Grid';
 import SearchForm from "./SearchForm";
 import CharacterCard from "./CharacterCard";
+
+
 
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
@@ -38,17 +40,21 @@ export default function CharacterList() {
   }, []);
 
   return (
-    <section className="character-list">
+    <section className="character-list"> 
       <SearchForm search = {search} /> 
-      {filterChars.map(character => (
-        <CharacterCard 
-          key = {character.id}
-          image = {character.image}
-          name = {character.name}
-          origin = {character.origin.name}
-          species = {character.species}
-          status = {character.status} />
-        ))}
+      <Grid item xs={12} sm={6} lg={4} xl={3}>
+        {filterChars.map(character => (
+          <CharacterCard 
+            key = {character.id} 
+            image = {character.image}
+            name = {character.name}
+            origin = {character.origin.name}
+            species = {character.species}
+            status = {character.status} />
+          ))}
+      </Grid>
     </section>
   );
 }
+
+            

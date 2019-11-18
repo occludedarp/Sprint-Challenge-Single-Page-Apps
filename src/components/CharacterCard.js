@@ -1,34 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import Typography from '@material-ui/core/Typography'
 
-import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
 
 export default function CharacterCard(props) {
-
   return( 
-    <Link to={`/characters/${props.key}`}>
-      <span>
-        <div>
-          <Card inverse>
-            <CardImg width="100%" src={props.image} alt="Card image cap" />
-            <CardImgOverlay>
-              <CardTitle>{props.name}</CardTitle>
-              <CardText>
-              <small className="text-muted">Origin: {props.origin}</small>
-              </CardText>
-
-              <CardText>
-              <small className="text-muted">Species: {props.species}</small>
-              </CardText>
-
-              <CardText>
-              <small className="text-muted">Status: {props.status}</small>
-              </CardText>
-
-            </CardImgOverlay>
-          </Card>
-        </div>
-      </span>
-     </Link>
+      <div>
+        <img top width="100%" src={props.image} alt="Card image cap" />
+          <Typography variant="title" color="inherit" >{props.name}</Typography>
+          <h4>Origin: {props.origin}</h4>
+          <h4>Species: {props.species}</h4>
+          <h4>Status: {props.status}</h4>
+      </div>
   )
 }
